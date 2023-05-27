@@ -1,4 +1,4 @@
-" Last Change: 2023-05-27  Saturday: 04:25:22 PM
+" Last Change: 2023-05-27  Saturday: 09:05:26 PM
 "  ============================================================================
 "  Basic GIT Operations. git difftool & git status
 "  Plugin By: Pinaki Sekhar Gupta
@@ -48,10 +48,39 @@ endfunction
 function! GinaStatus()
   :Gina! status
 endfunction
+"
+"  =====================================================================================
+"  Run gitk
+"  =====================================================================================
+"
+function! GitK()
+  if g:osdetected == "Windows"
+    :!start /min cmd /c gitk
+  elseif g:osdetected != "Windows"    " Not tested on Linux
+    :silent!!gitk &
+  endif
+endfunction
+"
+"  =====================================================================================
+"  Run git-cola
+"  =====================================================================================
+"
+function! GitCola()
+  if g:osdetected == "Windows"
+    :!start /min cmd /c git-cola
+  elseif g:osdetected != "Windows"    " Not tested on Linux
+    :silent!!git-cola &
+  endif
+endfunction
+
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :amenu Plugin.GIT.GIT\ Difftool\ \(\:Diftl) :call GitDifftool() <Esc><Esc>
 command! Diftl :call GitDifftool() <Esc><Esc>
 :amenu Plugin.GIT.GIT\ Status\ \(\:Gstat) :call GitStatus() <Esc><Esc>
 command! Gstat :call GitStatus() <Esc><Esc>
 :amenu Plugin.GIT.Gina\ Status\ \(\:\Gina!\ \status) :call GinaStatus() <Esc><Esc>
+:amenu Plugin.GIT.gitk\ \(\:Gitk) :call GitK() <Esc><Esc>
+command! Gitk :call GitK() <Esc><Esc>
+:amenu Plugin.GIT.git-cola\ \(\:GitCola) :call GitCola() <Esc><Esc>
+command! GitCola :call GitCola() <Esc><Esc>
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
