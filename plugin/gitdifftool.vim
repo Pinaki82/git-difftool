@@ -51,7 +51,7 @@ endfunction
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :amenu Plugin.GIT.GIT\ Difftool\ \(\:Diftl) :call GitDifftool() <Esc><Esc>
 command! Diftl :call GitDifftool() <Esc><Esc>
-:amenu Plugin.GIT.GIT\ Status :call GitStatus() <Esc><Esc>
+:amenu Plugin.GIT.GIT\ Status\ \(\:Gstat) :call GitStatus() <Esc><Esc>
 command! Gstat :call GitStatus() <Esc><Esc>
 :amenu Plugin.GIT.Gina\ Status\ \(\:\Gina!\ \status) :call GinaStatus() <Esc><Esc>
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
